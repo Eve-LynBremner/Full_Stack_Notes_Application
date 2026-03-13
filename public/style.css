@@ -1,0 +1,82 @@
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f6f9;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.main-content h1 {
+    margin-bottom: 20px;
+}
+
+.widget {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.add, h1 {
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    padding: 0px;
+    display: block;
+    margin: 0 auto;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #2d3e50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#deleteButton {
+    background-color: #cc8932;
+}
+
+#completeButton {
+    background-color: #74bc1c;
+}
+
+#editButton {
+    background-color: #1484bc;
+}
+
+li button {
+    float: right;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+input[type="text"] {
+    padding: 9px;
+    width: 30%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+li {
+    padding: 10px 20px;
+}
