@@ -70,7 +70,7 @@ app.put("/data/:id", (req, res) => {
   if (!item) {
     return res.status(404).json({ message: "Data not found" });
   }
-  item.note = req.body.note;
+  item.text = req.body.text;
   writeData(currentData);
   res.json({ message: "Data updated successfully", data: item });
 });
@@ -94,8 +94,11 @@ app.post("/echo", (req, res) => {
   res.json({ received: req.body });
 });
 
-// Wildcard route to handle undefined routes
-app.all("*", (req, res) => {
+// The "*" was causing error, was recommended to use the below instead
+// app.all("*", (req, res) => {
+//   res.status(404).send("Route not found");
+// });
+app.use((req, res) => {
   res.status(404).send("Route not found");
 });
 
