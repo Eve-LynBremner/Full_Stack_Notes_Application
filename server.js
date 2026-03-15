@@ -7,8 +7,8 @@ const { v4: uuidv4 } = require("uuid");
 // Create an instance of an Express application
 const app = express();
 
-// Define the port the server will listen on
-const PORT = 3001;
+// Update port so that it can run locally on server and on render
+const PORT = process.env.PORT || 3001;
 
 // Middleware to parse incoming JSON requests
 app.use(express.json());
