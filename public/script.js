@@ -56,12 +56,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-    // DELETE
-    deleteData.addEventListener("click", async (event) => {
+    /*  cannot add event listener to the delete and update buttons because these buttons and the list items do not yet exist.
+        Instead add event listener to the unordered list as this exists from the start. Then check when an event happens and if that 
+        event is a button click. Then perform one of the functions below depending on which button was clicked. */
+    
+    noteList.addEventListener("click", async (event) => {
     event.preventDefault();
-    const item = item.id;
+
+    // DELETE
+    if (event.target.className === "deleteButton") {
+    const itemId = event.target.dataset.id;
     try {
-      const response = await fetch(`/data/${item}`, {
+      const response = await fetch(`/data/${itemId}`, {
         method: "DELETE"
       });
       if (response.ok) {
@@ -70,28 +76,29 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (error) {
       console.error("Error adding data:", error);
     }
-    });
-
-  // UPDATE
-    updateData.addEventListener("click", async (event) => {
-    event.preventDefault();
-    const item = item.id;
-    // need a pop up to get the new input
-    const newData = prompt("Enter new text:", "");
-    try {
-      const response = await fetch(`/data/${item}`,{
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newData),
-      });
-
-      if (response.ok) {
-        fetchData();
-      }
-    } catch (error) {
-      console.error("Error adding data:", error);
-    }
-  });
+    };
+    
+    // UPDATE
+     if (event.target.className === "updateButton") {
+        const itemId = event.target.dataset.id;
+        // need a pop up to get the new input
+        // default to exist text so that it's easier to edit
+        const newData = prompt("Enter new text:", "");
+        if (!newData) return;
+        try {
+            const response = await fetch(`/data/${itemId}`,{
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ text: newData }),
+            });
+            if (response.ok) {
+                fetchData();
+            }
+        } catch (error) {
+            console.error("Error adding data:", error);
+        }
+  }
+});
 
   fetchData();
 });
