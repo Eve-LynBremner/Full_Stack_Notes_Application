@@ -28,6 +28,8 @@ html {
     margin-bottom: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    max-width: 70%;
+    margin: 20px auto;    
 }
 
 .add, h1 {
@@ -44,23 +46,12 @@ img {
 
 button {
     padding: 10px 20px;
+    margin-right: 10px;
     background-color: #2d3e50;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-#deleteButton {
-    background-color: #cc8932;
-}
-
-#completeButton {
-    background-color: #74bc1c;
-}
-
-#editButton {
-    background-color: #1484bc;
 }
 
 li button {
