@@ -30,8 +30,7 @@ Once the application is running in your browser, you can do the following.
 
 All changes are saved to data.json and reflected immediately in the UI.
 
-You can access the live version here:
-Render Deployment: <your-render-link-here>  
+You can access the live version here (render link): https://full-stack-notes-application-dumv.onrender.com/  
 
 ## License
 MIT License
