@@ -16,7 +16,7 @@ Install dependencies
 run the server
 `node server.js`
 
-open link below in browser to view app
+open the link in browser to view app
 `http://localhost:3001`
 
 
