@@ -39,7 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
   addNote.addEventListener("click", async (event) => {
     event.preventDefault();
     const newData = { text: noteInput.value };
-
+    if (!noteInput.value.trim()) {
+      noteInput.value = "";
+      return;
+    }
     try {
       const response = await fetch("/data", {
         method: "POST",
@@ -84,7 +87,9 @@ document.addEventListener("DOMContentLoaded", () => {
         // need a pop up to get the new input
         // default to exist text so that it's easier to edit
         const newData = prompt("Enter new text:", "");
-        if (!newData) return;
+        if (!newData.trim()) {
+          return;
+        }
         try {
             const response = await fetch(`/data/${itemId}`,{
             method: "PUT",
