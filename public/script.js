@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (error) {
       console.error("Error adding data:", error);
     }
-    };
+    }
     
     // UPDATE
      if (event.target.className === "updateButton") {
